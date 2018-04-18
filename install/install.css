@@ -1,0 +1,51 @@
+body
+{
+    font-family: sans-serif;
+    background-color: grey;
+    font-size: 100%
+}
+.main
+{
+    background-color: #ECEFF1;
+    max-width: 650px;
+    position: relative;
+    margin: 10% auto;
+
+}
+sup
+{
+    font-size: .5em;
+}
+.top
+{
+    background-color: #34495E;
+    color: #B0BEC1;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    font-weight: 700;
+
+}
+h2
+{
+    padding: 10px;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+
+    display: list-item;
+    margin: 10px 0px;
+
+}
+.list
+{
+    position: relative;
+    clear: both;
+    background: white;
+    padding: 50px;
+}

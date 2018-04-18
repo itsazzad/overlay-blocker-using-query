@@ -1,0 +1,35 @@
+@import url(../vendor/font-awesome/font-awesome.min.css);
+
+body {
+    width: 200px;
+}
+
+.switchItem {
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.menu {
+    margin-top: 5px;
+}
+
+.menu__item {
+    display: block;
+    color: #555555;
+    border-top: 1px solid #dddddd;
+    padding: 4px 7px;
+}
+
+.menu__item:hover, .menu__item:focus {
+    color: #555555;
+    text-decoration: none;
+    background-color: #f5f5f5;
+}
+
+.menu__item-hidden {
+    display: none;
+}
+
+.menu__itemIcon {
+    margin-right: 6px;
+}

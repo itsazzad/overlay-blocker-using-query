@@ -1,0 +1,55 @@
+{
+  "background": {
+    "scripts": [
+      "vendor/jquery/jquery-3.3.1.min.js",
+      "background/utils.js",
+      "background/optionsController.js",
+      "background/background.js"
+    ]
+  },
+  "browser_action": {
+    "default_icon": {
+      "128": "images/enable_in_list_128.png"
+    },
+    "default_popup": "popup/popup.html",
+    "default_title": "Overlay Blocker"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "vendor/jquery/jquery-3.3.1.min.js",
+        "content/overlayRemover.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "default_locale": "en",
+  "description": "Stop annoying overlays from interrupting your web browsing from your listing.",
+  "icons": {
+    "128": "images/enable_in_list_128.png"
+  },
+  "manifest_version": 2,
+  "name": "Overlay Blocker",
+  "options_page": "options/options.html",
+  "options_ui": {
+    "chrome_style": false,
+    "open_in_tab": true,
+    "page": "options/options.html"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "cookies",
+    "webNavigation",
+    "<all_urls>"
+  ],
+  "short_name": "Overlay Block",
+  "version": "0.1",
+  "web_accessible_resources": [
+    "toolbar/toolbar.html"
+  ]
+}

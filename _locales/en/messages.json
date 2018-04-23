@@ -8,9 +8,6 @@
    "allowOnce": {
       "message": "Allow Once"
    },
-   "email": {
-      "message": "Your email"
-   },
    "extensionEnabled_Label": {
       "message": "Extension"
    },
@@ -20,38 +17,14 @@
    "extensionEnabled_On": {
       "message": "Enabled"
    },
-   "formTitle": {
-      "message": "Not working on a site?"
-   },
    "inWhiteList": {
       "message": "Whitelisted"
-   },
-   "messageTitle": {
-      "message": "Message"
    },
    "options": {
       "message": "Options"
    },
    "optionsPageTitle": {
       "message": "Settings"
-   },
-   "reasonCheck": {
-      "message": "Not working on a site"
-   },
-   "reasonOther": {
-      "message": "Other"
-   },
-   "reasonQuestions": {
-      "message": "Questions"
-   },
-   "reasonTitle": {
-      "message": "Reason for contacting"
-   },
-   "remove": {
-      "message": "Remove"
-   },
-   "send": {
-      "message": "Send"
    },
    "siteWhitelisted_Label": {
       "message": "Site"

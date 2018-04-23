@@ -1,23 +1,33 @@
-var bp = chrome.extension.getBackgroundPage();
-var optionsController = bp.optionsController;
+var defaultValue = 'modal-hide';
 
-$(function () {
-    localize();
-    updateWhiteList();
-    optionsController.events.subscribe(optionsController.events.eventNames.SETTINGS_CHANGED, settingsChanged);
-    $("#whiteList").on("click", "a.button", onRemoveFromWhiteListClick);
-});
+function getModalHide(){
+    return document.getElementById('modal-hide');
+}
+// Saves options to chrome.storage
+function form_save_options() {
+    var modalHide = getModalHide().value;
+    save_options(modalHide);
+}
+function save_options(modalHide) {
+    chrome.storage.sync.set({
+        modalHide: modalHide ? modalHide : defaultValue,
+    }, function () {
+        // Update status to let user know options were saved.
+        var status = document.getElementById('status');
+        status.textContent = 'Options saved.';
+        setTimeout(function () {
+            status.textContent = '';
+        }, 750);
+    });
+}
 
-function updateWhiteList() {
-    var whiteList = optionsController.options.whiteList;
-    var $whiteList = $("#whiteList");
-    var htmlContent = "";
-
-    for (var i = 0; i < whiteList.length; i++) {
-        htmlContent += '<tr><td>' + whiteList[i] + '</td><td><a class="button" href="#" ' + 'data-index="' + i + '">' + chrome.i18n.getMessage("remove") + '</a></td></tr>';
-    }
-
-    $whiteList.html(htmlContent);
+// Restores select box and checkbox state using the preferences
+// stored in chrome.storage.
+function restore_options() {
+    // Use default value color = 'red' and likesColor = true.
+    chrome.storage.sync.get(['modalHide'], function (items) {
+        getModalHide().value = items.modalHide ? items.modalHide : defaultValue;
+    });
 }
 
 function localize() {
@@ -35,11 +45,8 @@ function localize() {
     }
 }
 
-function onRemoveFromWhiteListClick() {
-    var index = +$(this).data("index");
-    optionsController.removeFromWhiteList(optionsController.options.whiteList[index]);
-}
-
-function settingsChanged() {
-    updateWhiteList();
-}
+document.addEventListener('DOMContentLoaded', restore_options);
+$(function () {
+    localize();
+    document.getElementById('save').addEventListener('click', form_save_options);
+});

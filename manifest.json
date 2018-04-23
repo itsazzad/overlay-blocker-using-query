@@ -12,7 +12,7 @@
       "128": "images/enable_in_list_128.png"
     },
     "default_popup": "popup/popup.html",
-    "default_title": "Overlay Blocker"
+    "default_title": "Overlay Blocker using query"
   },
   "content_scripts": [
     {
@@ -32,7 +32,7 @@
     "128": "images/enable_in_list_128.png"
   },
   "manifest_version": 2,
-  "name": "Overlay Blocker",
+  "name": "Overlay Blocker using query",
   "options_page": "options/options.html",
   "options_ui": {
     "chrome_style": false,
@@ -47,7 +47,7 @@
     "webNavigation",
     "<all_urls>"
   ],
-  "short_name": "Overlay Block",
+  "short_name": "Overlay Blocker using query",
   "version": "0.1",
   "web_accessible_resources": [
     "toolbar/toolbar.html"

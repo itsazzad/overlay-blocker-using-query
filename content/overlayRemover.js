@@ -249,6 +249,17 @@ var overlayRemover = function (utils) {
     }
 
     function run() {
+        chrome.storage.sync.get(['modalHide'], function (items) {
+            let params = (new URL(document.location)).searchParams;
+            let modalHide = params.get(items.modalHide ? items.modalHide : 'modal-hide');
+            if(modalHide !== null && (modalHide.toLowerCase() !== 'false')){
+                queriedRun();
+            }
+        });
+        return;
+    }
+
+    function queriedRun() {
         if (disable) {
             return;
         }
@@ -288,7 +299,7 @@ var overlayRemover = function (utils) {
                         }
 
                         containersOverflowAuto();
-                        showToolbar();
+                        // showToolbar();
                         utils.repeat(containersOverflowAuto, 100, 3 * 10);
                         break;
                 }
